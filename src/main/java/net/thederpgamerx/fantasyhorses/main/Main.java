@@ -16,6 +16,11 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Horse;
+
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
+import com.google.common.collect.Multimap;
+
 import me.blackvein.quests.Quest;
 import net.thederpgamerx.fantasyhorses.commands.Debug_LoadStructure;
 import net.thederpgamerx.fantasyhorses.commands.Debug_RemoveHorse;
@@ -44,7 +49,7 @@ public class Main extends org.bukkit.plugin.java.JavaPlugin implements CommandEx
   public static HashMap<UUID, Horse> fhorses3 = new HashMap<>();
   public static HashMap<QuestNPC, Quest> questNPCs = new HashMap<>();
   public static HashMap<UUID, Quest> questTracker = new HashMap<>();
-  public static HashMap<UUID, Entity> killMobsObjective = new HashMap<>();
+  public static Multimap<UUID, UUID> killMobGroupQuest = ArrayListMultimap.create();
   
   @Override
   public void onEnable() {
