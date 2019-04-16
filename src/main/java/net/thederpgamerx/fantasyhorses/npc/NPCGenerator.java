@@ -33,9 +33,9 @@ public class NPCGenerator {
 	}
 	
 	public static Quest generateQuest(NPC npc, String stableType) {
-		Quest quest = new Quest();
 		Quests qp = (Quests)Bukkit.getServer().getPluginManager().getPlugin("Quests");
-
+		Quest quest = new Quest();
+		
 		ArrayList<String> questType = new ArrayList<>();
 		
 		//Possible quest types
@@ -65,7 +65,7 @@ public class NPCGenerator {
             String questKillRandom = questKill.get(questKillRandomGen.nextInt(questKill.size()));
             
             if(questKillRandom == "x7 Zombies") {
-            	quest.setName("Zombie Clearing");
+            	
             } else if(questKillRandom == "x7 Skeletons") {
             	
             } else if(questKillRandom == "x1 Witch") {
@@ -89,6 +89,8 @@ public class NPCGenerator {
         } else if(randomQuestType == "explore") {
         	
         } else if(randomQuestType == "killMobGroup") {
+        	ArrayList<String> targets = new ArrayList<>();
+        	
         	
         }
 		
