@@ -14,6 +14,5 @@ public class KillMobGroupObjective extends CustomObjective implements Listener {
         this.setName("Kill " + mobcount + " " + mobType + " for " + npcQuestGiver.getName() + " and you'll get a reward!");
         this.setDisplay("Kill " + mobcount + " " + mobType + " for " + npcQuestGiver.getName() + " and you'll get a reward!");
         this.setCount(mobcount);
-        this.addStringPrompt("Item Name", "Enter the name of the item that the player must drop", "DIRT");
 	}
 }
