@@ -17,8 +17,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Horse;
 import me.blackvein.quests.Quest;
-import net.citizensnpcs.api.npc.NPC;
-import net.thederpgamerx.fantasyhorses.commands.Debug_HorseReload;
 import net.thederpgamerx.fantasyhorses.commands.Debug_LoadStructure;
 import net.thederpgamerx.fantasyhorses.commands.Debug_RemoveHorse;
 import net.thederpgamerx.fantasyhorses.commands.Debug_SaveStructure;
@@ -69,7 +67,6 @@ public class Main extends org.bukkit.plugin.java.JavaPlugin implements CommandEx
     getCommand("horse").setExecutor(new HorseGUI());
     getCommand("debug_savestructure").setExecutor(new Debug_SaveStructure());
     getCommand("debug_loadstructure").setExecutor(new Debug_LoadStructure());
-    getCommand("debug_horsereload").setExecutor(new Debug_HorseReload());
     getCommand("debug_removehorse").setExecutor(new Debug_RemoveHorse());
   }
   
