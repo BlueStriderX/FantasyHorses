@@ -2,7 +2,6 @@ package net.thederpgamerx.fantasyhorses.npc;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import me.blackvein.quests.Quest;

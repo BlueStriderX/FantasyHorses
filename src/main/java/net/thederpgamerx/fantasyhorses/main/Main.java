@@ -137,11 +137,11 @@ public void onDisable() {
       }
   }
   
-  static FileConfiguration getHorsesConfig() {
+  public static FileConfiguration getHorsesConfig() {
       return horsesConfig;
   }
   
-  static File getHorsesFile() {
+  public static File getHorsesFile() {
 	  return horsesFile;
   }
   
