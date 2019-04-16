@@ -1,6 +1,5 @@
 package net.thederpgamerx.fantasyhorses.quests.objectives;
 
-import java.util.Map;
 import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
@@ -20,8 +19,8 @@ public class KillTracker implements Listener {
 		if(entity.getType() == EntityType.ZOMBIE) {
 			if(entity.getKiller() instanceof Player) {
 				UUID playerUUID = entity.getKiller().getUniqueId();
-				if(Main.killMobsObjective.containsKey(playerUUID)) {
-					
+				if(Main.killMobGroupQuest.containsEntry(playerUUID, entity.getUniqueId())) {
+					Main.killMobGroupQuest.remove(playerUUID, entity.getUniqueId());
 				}
 			} else {
 				return;
