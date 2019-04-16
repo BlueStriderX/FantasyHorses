@@ -20,7 +20,13 @@ public class KillTracker implements Listener {
 			if(entity.getKiller() instanceof Player) {
 				UUID playerUUID = entity.getKiller().getUniqueId();
 				if(Main.killMobGroupQuest.containsEntry(playerUUID, entity.getUniqueId())) {
-					Main.killMobGroupQuest.remove(playerUUID, entity.getUniqueId());
+					if(Main.killMobGroupQuest.keys().size() > 0) {
+						Main.killMobGroupQuest.remove(playerUUID, entity.getUniqueId());
+					}
+				} else if(Main.killMobGroupQuest.containsEntry(playerUUID, entity.getUniqueId())) {
+					if(Main.killMobGroupQuest.keys().size() < 1) {
+						
+					}
 				}
 			} else {
 				return;
