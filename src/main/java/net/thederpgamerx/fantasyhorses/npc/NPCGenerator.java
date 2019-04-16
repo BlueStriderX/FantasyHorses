@@ -65,7 +65,7 @@ public class NPCGenerator {
             String questKillRandom = questKill.get(questKillRandomGen.nextInt(questKill.size()));
             
             if(questKillRandom == "x7 Zombies") {
-            	
+            	quest.setName("Zombie Clearing");
             } else if(questKillRandom == "x7 Skeletons") {
             	
             } else if(questKillRandom == "x1 Witch") {
