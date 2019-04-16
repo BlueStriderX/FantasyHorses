@@ -11,9 +11,6 @@ commands:
  debug_removehorse:
   usage: /debug_removehorse <player> <slot>
   description: Force removes a horse through command
- debug_horsereload:
-  usage: /debug_horsereload
-  description: Reloads configs
  debug_savestructure:
   usage: /debug_savestructure
   description: Used to save stable structure, will be removed in later release
@@ -31,9 +28,6 @@ permissions:
  fantasyhorses.debug_removehorse:
   default: false
   description: Access to /debug_removehorse command
- fantasyhorses.debug_horsereload:
-  default: false
-  description: Access to /debug_reload command
  fantasyhorses.debug_savestructure:
   default: true
   description: Access to /debug_savestructure command
