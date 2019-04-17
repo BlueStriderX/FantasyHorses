@@ -16,19 +16,11 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Horse;
-
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.ListMultimap;
-import com.google.common.collect.Multimap;
-
-import me.blackvein.quests.Quest;
 import net.thederpgamerx.fantasyhorses.commands.Debug_LoadStructure;
 import net.thederpgamerx.fantasyhorses.commands.Debug_RemoveHorse;
 import net.thederpgamerx.fantasyhorses.commands.Debug_SaveStructure;
 import net.thederpgamerx.fantasyhorses.horses.HorseGUI;
 import net.thederpgamerx.fantasyhorses.horses.HorseHandler;
-import net.thederpgamerx.fantasyhorses.npc.QuestNPC;
-import net.thederpgamerx.fantasyhorses.quests.objectives.KillTracker;
 import net.thederpgamerx.fantasyhorses.structures.StableGenerator;
 import net.thederpgamerx.fantasyhorses.structures.StableHandler;
 
@@ -47,9 +39,6 @@ public class Main extends org.bukkit.plugin.java.JavaPlugin implements CommandEx
   public static HashMap<UUID, Horse> fhorses1 = new HashMap<>();
   public static HashMap<UUID, Horse> fhorses2 = new HashMap<>();
   public static HashMap<UUID, Horse> fhorses3 = new HashMap<>();
-  public static HashMap<QuestNPC, Quest> questNPCs = new HashMap<>();
-  public static HashMap<UUID, Quest> questTracker = new HashMap<>();
-  public static Multimap<UUID, UUID> killMobGroupQuest = ArrayListMultimap.create();
   
   @Override
   public void onEnable() {
@@ -66,7 +55,6 @@ public class Main extends org.bukkit.plugin.java.JavaPlugin implements CommandEx
     getServer().getPluginManager().registerEvents(new HorseHandler(), this);
     getServer().getPluginManager().registerEvents(new StableGenerator(), this);
     getServer().getPluginManager().registerEvents(new StableHandler(), this);
-    getServer().getPluginManager().registerEvents(new KillTracker(), this);
 
 
     getCommand("horse").setExecutor(new HorseGUI());
