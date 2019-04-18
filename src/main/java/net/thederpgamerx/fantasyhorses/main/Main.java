@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 import org.bukkit.Bukkit;
@@ -16,6 +17,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Horse;
+import net.citizensnpcs.api.npc.NPC;
 import net.thederpgamerx.fantasyhorses.commands.Debug_LoadStructure;
 import net.thederpgamerx.fantasyhorses.commands.Debug_RemoveHorse;
 import net.thederpgamerx.fantasyhorses.commands.Debug_SaveStructure;
@@ -39,6 +41,9 @@ public class Main extends org.bukkit.plugin.java.JavaPlugin implements CommandEx
   public static HashMap<UUID, Horse> fhorses1 = new HashMap<>();
   public static HashMap<UUID, Horse> fhorses2 = new HashMap<>();
   public static HashMap<UUID, Horse> fhorses3 = new HashMap<>();
+  public static ArrayList<Entity> stableKeepers = new ArrayList<Entity>();
+  public static ArrayList<NPC> stableShopKeepers = new ArrayList<NPC>();
+
   
   @Override
   public void onEnable() {
