@@ -18,6 +18,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import net.citizensnpcs.api.npc.NPC;
 import net.thederpgamerx.fantasyhorses.main.Main;
 
 public class HorseGUI implements org.bukkit.event.Listener, CommandExecutor {	
@@ -144,24 +145,28 @@ public class HorseGUI implements org.bukkit.event.Listener, CommandExecutor {
     		e.setCancelled(true);
     		if(e.getCurrentItem().getType().equals(Material.ENDER_PEARL)) {
     			player.closeInventory();
-    			if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("true")) {
-    				if(player.getInventory().contains(Material.ENDER_PEARL)) {
-    					Inventory pInventory = player.getInventory();
-    					ItemStack[] items = pInventory.getStorageContents();
-    					for(ItemStack item : items) {
-    					    if(item == null) continue;
-    					    
-    					    if(item.getType() == Material.ENDER_PEARL) {
-    					    	item.setAmount(item.getAmount() - 1);
-    					    	HorseHandler.summon(player, 1);
-    					        break;
-    					    }
-    					}
-        			} else if(!(player.getInventory().contains(Material.ENDER_PEARL))) {
-        				player.sendMessage(ChatColor.DARK_RED + "You don't have any ender pearls!");
-        			}
-    			} else if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("false")) {
+    			if(player.getNearbyEntities(10, 10, 10).contains(Main.stableKeepers)) {
     				HorseHandler.summon(player, 1);
+    			} else if(!(player.getNearbyEntities(10, 10, 10).contains(Main.stableKeepers))) {
+    				if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("true")) {
+    	    			if(player.getInventory().contains(Material.ENDER_PEARL)) {
+    	    				Inventory pInventory = player.getInventory();
+    	    				ItemStack[] items = pInventory.getStorageContents();
+    	    				for(ItemStack item : items) {
+    	    					if(item == null) continue;
+    	    					    
+    	    					if(item.getType() == Material.ENDER_PEARL) {
+    	    					    item.setAmount(item.getAmount() - 1);
+    	    					    HorseHandler.summon(player, 1);
+    	    					    break;
+    	    					}
+    	    				}
+    	        		} else if(!(player.getInventory().contains(Material.ENDER_PEARL))) {
+    	        			player.sendMessage(ChatColor.DARK_RED + "You don't have any ender pearls!");
+    	        		}
+    	    		} else if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("false")) {
+    	    			HorseHandler.summon(player, 1);
+    	    		}
     			}
     		} else if(e.getCurrentItem().getType().equals(Material.REDSTONE_BLOCK)) {
     			String horseName = horsesConfig.getString(player.getUniqueId().toString() + ".1.horse-name");
@@ -193,29 +198,33 @@ public class HorseGUI implements org.bukkit.event.Listener, CommandExecutor {
     			} else if(!(player.getInventory().contains(Material.GOLDEN_CARROT))) {
     				player.sendMessage(ChatColor.DARK_RED + "You don't have any golden carrots!");
     			}
-    		} 
+    		}
       	} else if(invName.equals(ChatColor.RED + "Horse 2 Menu")) {
     		e.setCancelled(true);
     		if(e.getCurrentItem().getType().equals(Material.ENDER_PEARL)) {
     			player.closeInventory();
-    			if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("true")) {
-    				if(player.getInventory().contains(Material.ENDER_PEARL)) {
-    					Inventory pInventory = player.getInventory();
-    					ItemStack[] items = pInventory.getStorageContents();
-    					for(ItemStack item : items) {
-    					    if(item == null) continue;
-    					    
-    					    if(item.getType() == Material.ENDER_PEARL) {
-    					    	item.setAmount(item.getAmount() - 1);
-    					    	HorseHandler.summon(player, 2);
-    					        break;
-    					    }
-    					}
-        			} else if(!(player.getInventory().contains(Material.ENDER_PEARL))) {
-        				player.sendMessage(ChatColor.DARK_RED + "You don't have any ender pearls!");
-        			}
-    			} else if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("false")) {
+    			if(player.getNearbyEntities(10, 10, 10).contains(Main.stableKeepers)) {
     				HorseHandler.summon(player, 2);
+    			} else if(!(player.getNearbyEntities(10, 10, 10).contains(Main.stableKeepers))) {
+    				if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("true")) {
+    	    			if(player.getInventory().contains(Material.ENDER_PEARL)) {
+    	    				Inventory pInventory = player.getInventory();
+    	    				ItemStack[] items = pInventory.getStorageContents();
+    	    				for(ItemStack item : items) {
+    	    					if(item == null) continue;
+    	    					    
+    	    					if(item.getType() == Material.ENDER_PEARL) {
+    	    					    item.setAmount(item.getAmount() - 1);
+    	    					    HorseHandler.summon(player, 2);
+    	    					    break;
+    	    					}
+    	    				}
+    	        		} else if(!(player.getInventory().contains(Material.ENDER_PEARL))) {
+    	        			player.sendMessage(ChatColor.DARK_RED + "You don't have any ender pearls!");
+    	        		}
+    	    		} else if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("false")) {
+    	    			HorseHandler.summon(player, 2);
+    	    		}
     			}
     		} else if(e.getCurrentItem().getType().equals(Material.REDSTONE_BLOCK)) {
     			String horseName = horsesConfig.getString(player.getUniqueId().toString() + ".2.horse-name");
@@ -252,24 +261,28 @@ public class HorseGUI implements org.bukkit.event.Listener, CommandExecutor {
     		e.setCancelled(true);
     		if(e.getCurrentItem().getType().equals(Material.ENDER_PEARL)) {
     			player.closeInventory();
-    			if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("true")) {
-    				if(player.getInventory().contains(Material.ENDER_PEARL)) {
-    					Inventory pInventory = player.getInventory();
-    					ItemStack[] items = pInventory.getStorageContents();
-    					for(ItemStack item : items) {
-    					    if(item == null) continue;
-    					    
-    					    if(item.getType() == Material.ENDER_PEARL) {
-    					    	item.setAmount(item.getAmount() - 1);
-    					    	HorseHandler.summon(player, 3);
-    					        break;
-    					    }
-    					}
-        			} else if(!(player.getInventory().contains(Material.ENDER_PEARL))) {
-        				player.sendMessage(ChatColor.DARK_RED + "You don't have any ender pearls!");
-        			}
-    			} else if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("false")) {
+    			if(player.getNearbyEntities(10, 10, 10).contains(Main.stableKeepers)) {
     				HorseHandler.summon(player, 3);
+    			} else if(!(player.getNearbyEntities(10, 10, 10).contains(Main.stableKeepers))) {
+    				if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("true")) {
+    	    			if(player.getInventory().contains(Material.ENDER_PEARL)) {
+    	    				Inventory pInventory = player.getInventory();
+    	    				ItemStack[] items = pInventory.getStorageContents();
+    	    				for(ItemStack item : items) {
+    	    					if(item == null) continue;
+    	    					    
+    	    					if(item.getType() == Material.ENDER_PEARL) {
+    	    					    item.setAmount(item.getAmount() - 1);
+    	    					    HorseHandler.summon(player, 3);
+    	    					    break;
+    	    					}
+    	    				}
+    	        		} else if(!(player.getInventory().contains(Material.ENDER_PEARL))) {
+    	        			player.sendMessage(ChatColor.DARK_RED + "You don't have any ender pearls!");
+    	        		}
+    	    		} else if(Main.getPlugin().getConfig().getString("summon-costs-epearls").equals("false")) {
+    	    			HorseHandler.summon(player, 3);
+    	    		}
     			}
     		} else if(e.getCurrentItem().getType().equals(Material.REDSTONE_BLOCK)) {
     			String horseName = horsesConfig.getString(player.getUniqueId().toString() + ".3.horse-name");
@@ -303,9 +316,9 @@ public class HorseGUI implements org.bukkit.event.Listener, CommandExecutor {
     			}
     		}
       	}
-	  }
     }
-  
+  }
+      	
   @SuppressWarnings("unchecked")
   public static void createHorseSelection(Player player) {
 	  
