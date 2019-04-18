@@ -19,11 +19,10 @@ public class StableGenerator implements Listener {
 
 	@EventHandler (priority = EventPriority.HIGH)
 	public static void onChunkLoadEvent(ChunkLoadEvent e) {
-		if(Main.getPlugin().getConfig().getBoolean("enable-stables") == true) {
-			if(e.isNewChunk() == true) {
-				double stableGenChanceConfig = Main.getPlugin().getConfig().getDouble("stable-gen-chance");
-				boolean stableGen = Math.random() < stableGenChanceConfig;
-				if(stableGen == true) {
+		if(e.isNewChunk() == true) {
+			double stableGenChanceConfig = Main.getPlugin().getConfig().getDouble("stable-gen-chance");
+			boolean stableGen = Math.random() < stableGenChanceConfig;
+			if(stableGen == true) {
 					int spawnX = e.getChunk().getBlock(1, 1, 1).getX();
 					int spawnZ = e.getChunk().getBlock(1, 1, 1).getZ();
 					Block spawnLocBlock = e.getWorld().getHighestBlockAt(spawnX, spawnZ);
@@ -119,5 +118,4 @@ public class StableGenerator implements Listener {
 				}
 			}
 		}
-	}
 }
