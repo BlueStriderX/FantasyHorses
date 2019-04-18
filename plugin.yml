@@ -3,7 +3,7 @@ name: FantasyHorses
 author: TheDerpGamerX
 version: 0.9
 api-version: 1.13
-softdepend: [Citizens]
+depend: [Citizens]
 commands: 
  horse:
   usage: /horse
