@@ -1,5 +1,3 @@
 summon-costs-epearls: true # If enabled, it costs ender pearls to summon a horse
 invulnerable-horses: false # If enabled, player horses are invulnerable
 horse-upgrade-max-health-multiplier: 1.05 # The modifier used for upgrading horse health
-enable-stables: true # Enables Horse Stable spawning and mechanics
-stable-gen-chance: 0.0035 # How often Horse Stables generate in the world

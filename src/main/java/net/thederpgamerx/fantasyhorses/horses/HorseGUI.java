@@ -335,7 +335,7 @@ public class HorseGUI implements org.bukkit.event.Listener, CommandExecutor {
 	  
 	  if(horse1Name != null && horse2Name != null && horse3Name != null) {
 		  horseSelection.setItem(0, createGuiItem(" ", new ArrayList(Arrays.asList(new String[] { "" })), Material.GRAY_STAINED_GLASS_PANE));
-		  horseSelection.setItem(1, createGuiItem("", new ArrayList(Arrays.asList(new String[] { "" })), Material.GRAY_STAINED_GLASS_PANE));
+		  horseSelection.setItem(1, createGuiItem(" ", new ArrayList(Arrays.asList(new String[] { "" })), Material.GRAY_STAINED_GLASS_PANE));
 		  horseSelection.setItem(2, createGuiItem(" ", new ArrayList(Arrays.asList(new String[] { "" })), Material.GRAY_STAINED_GLASS_PANE));
 		  horseSelection.setItem(3, createGuiItem(ChatColor.GOLD + horse1Name, new ArrayList(Arrays.asList(new String[] { "Horse is at: (" + horse1.getLocation().getBlockX() + " " +  horse1.getLocation().getBlockY() + " " + horse1.getLocation().getBlockZ() + ")"})), Material.SADDLE));
 	      horseSelection.setItem(4, createGuiItem(ChatColor.GOLD + horse2Name, new ArrayList(Arrays.asList(new String[] { "Horse is at: (" + horse2.getLocation().getBlockX() + " " +  horse2.getLocation().getBlockY() + " " + horse2.getLocation().getBlockZ() + ")"})), Material.SADDLE));

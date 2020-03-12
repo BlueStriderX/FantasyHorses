@@ -19,12 +19,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/garretreichenbach/Desktop/Coding/Minecraft Plugin Dev/Resources/Quests-3.6.5.jar"/>
-	<classpathentry kind="lib" path="/Users/garretreichenbach/Desktop/Coding/Minecraft Plugin Dev/Resources/PlaceholderAPI-2.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Garret/Documents/Programming/Java/Resources/spigot-1.14.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Garret/Documents/Programming/Java/Resources/craftbukkit-1.14.4-R0.1-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

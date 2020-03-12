@@ -8,20 +8,36 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
-
 import net.thederpgamerx.fantasyhorses.main.Main;
 
-public class Debug_RemoveHorse implements CommandExecutor {
+public class RemoveHorse implements CommandExecutor {
 	
 	static FileConfiguration horsesConfig = Main.getHorsesConfig();
 	static File horsesFile = Main.getHorsesFile();
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		Player admin = (Player) sender;
-		Player player = Bukkit.getPlayer(args[1]);
-		if(sender instanceof Player) {
+		if(cmd.toString() == "fhorse" && args[0] == "remove") {
+			if(sender instanceof Player) {
+				Player player = (Player) sender;
+				if(player.hasPermission("fantasyhorses.admin") || player.hasPermission("fantasyhorses.remove")) {
+					Player target;
+					try {
+						target = Bukkit.getPlayer(args[2]);
+					} catch (Exception e) {
+						System.err.println("[FantasyHorses]: Error encountered while trying to get the target player from server! The player most likely does'nt exist!");
+						player.sendMessage("[FantasyHorses]: You do not have permission to perform this command!");
+					}
+				}
+			}
+		}
+
+		if(sender instanceof Player && admin.has) {
+
+
+
+			/* Old stuff for reference
 			if(args.length == 2) {
-				if(admin.hasPermission("fantasyhorses.admin") || admin.hasPermission("fantasyhorses.debug_removehorse")) {
+				if(admin.hasPermission("fantasyhorses.admin") || admin.hasPermission("fantasyhorses.removehorse")) {
 					if(args[1] == "1") {
 						Horse horse = Main.fhorses1.get(player.getUniqueId());
 						Main.fhorses1.remove(player.getUniqueId(), horse);
@@ -72,5 +88,7 @@ public class Debug_RemoveHorse implements CommandExecutor {
 			}
 		}
 		return true;
+
+			 */
 	}
 }
