@@ -6,7 +6,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
 import net.thederpgamerx.fantasyhorses.main.Main;
 
@@ -23,16 +22,16 @@ public class RemoveHorse implements CommandExecutor {
 					Player target;
 					try {
 						target = Bukkit.getPlayer(args[2]);
+
 					} catch (Exception e) {
 						System.err.println("[FantasyHorses]: Error encountered while trying to get the target player from server! The player most likely does'nt exist!");
-						player.sendMessage("[FantasyHorses]: You do not have permission to perform this command!");
+						player.sendMessage("[FantasyHorses]: Server could not find player " + args[2] + ". They are probably not on server!");
 					}
+				} else {
+					player.sendMessage("[FantasyHorses]: You do not have permission to perform this command!");
 				}
 			}
 		}
-
-		if(sender instanceof Player && admin.has) {
-
 
 
 			/* Old stuff for reference

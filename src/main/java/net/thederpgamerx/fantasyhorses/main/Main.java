@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -17,32 +15,20 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Horse;
-import net.citizensnpcs.api.npc.NPC;
-import net.thederpgamerx.fantasyhorses.commands.Debug_LoadStructure;
-import net.thederpgamerx.fantasyhorses.commands.Debug_RemoveHorse;
-import net.thederpgamerx.fantasyhorses.commands.Debug_SaveStructure;
 import net.thederpgamerx.fantasyhorses.horses.HorseGUI;
 import net.thederpgamerx.fantasyhorses.horses.HorseHandler;
-import net.thederpgamerx.fantasyhorses.structures.StableGenerator;
-import net.thederpgamerx.fantasyhorses.structures.StableHandler;
 
 public class Main extends org.bukkit.plugin.java.JavaPlugin implements CommandExecutor {
 	
   private static Main plugin;
-  public String NAME = "FantasyHorses";
-  public String VERSION = "0.9";
-  public String AUTHOR = "TheDerpGamerX";
+  private String NAME = "FantasyHorses";
+  private String VERSION = "0.10";
+  private String AUTHOR = "TheDerpGamerX";
   
-  public String pluginfile = NAME + "v" + VERSION;
+  private String pluginfile = NAME + "v" + VERSION;
   
   private static File horsesFile;
   private static FileConfiguration horsesConfig;
-  
-  public static HashMap<UUID, Horse> fhorses1 = new HashMap<>();
-  public static HashMap<UUID, Horse> fhorses2 = new HashMap<>();
-  public static HashMap<UUID, Horse> fhorses3 = new HashMap<>();
-  public static ArrayList<Entity> stableKeepers = new ArrayList<Entity>();
-  public static ArrayList<NPC> stableShopKeepers = new ArrayList<NPC>();
 
   
   @Override
@@ -58,60 +44,9 @@ public class Main extends org.bukkit.plugin.java.JavaPlugin implements CommandEx
     
     getServer().getPluginManager().registerEvents(new HorseGUI(), this);
     getServer().getPluginManager().registerEvents(new HorseHandler(), this);
-    getServer().getPluginManager().registerEvents(new StableGenerator(), this);
-    getServer().getPluginManager().registerEvents(new StableHandler(), this);
-
 
     getCommand("horse").setExecutor(new HorseGUI());
-    getCommand("debug_savestructure").setExecutor(new Debug_SaveStructure());
-    getCommand("debug_loadstructure").setExecutor(new Debug_LoadStructure());
-    getCommand("debug_removehorse").setExecutor(new Debug_RemoveHorse());
   }
-  
-
-  public void saveStructuresFolder() {
-	  try {
-		  File structures = new File(Main.getPlugin().getDataFolder() + "/structures");
-		  if(!(structures.exists())) {
-			  structures.mkdir();
-		  }
-		  Path structuresDir = Paths.get(Main.getPlugin().getDataFolder() + "/structures");
-		  File plainsStable = new File(Main.getPlugin().getDataFolder() + "/structures/plainsStable.nbt");
-		  File desertStable = new File(Main.getPlugin().getDataFolder() + "/structures/desertStable.nbt");
-		  File savannaStable = new File(Main.getPlugin().getDataFolder() + "/structures/savannaStable.nbt");
-		  File forestStable = new File(Main.getPlugin().getDataFolder() + "/structures/forestStable.nbt");
-		  File birchForestStable = new File(Main.getPlugin().getDataFolder() + "/structures/birchForestStable.nbt");
-		  File snowyTaigaStable = new File(Main.getPlugin().getDataFolder() + "/structures/snowyTaigaStable.nbt");
-		  
-		  if(!(plainsStable.exists())) {
-			  Path plainsStablePath = Paths.get("/structures/plainsStable.nbt");
-			  Files.copy(plainsStablePath, structuresDir);
-		  }
-		  if(!(desertStable.exists())) {
-			  Path desertStablePath = Paths.get("/structures/desertStable.nbt");
-			  Files.copy(desertStablePath, structuresDir);
-		  }
-		  if(!(savannaStable.exists())) {
-			  Path savannaStablePath = Paths.get("/structures/savannaStable.nbt");
-			  Files.copy(savannaStablePath, structuresDir);
-		  }
-		  if(!(forestStable.exists())) {
-			  Path forestStablePath = Paths.get("/structures/forestStable.nbt");
-			  Files.copy(forestStablePath, structuresDir);
-		  }
-		  if(!(birchForestStable.exists())) {
-			  Path birchForestStablePath = Paths.get("/structures/birchForestStable.nbt");
-			  Files.copy(birchForestStablePath, structuresDir);
-		  }
-		  if(!(snowyTaigaStable.exists())) {
-			  Path snowyTaigaStablePath = Paths.get("/structures/snowyTaigaStable.nbt");
-			  Files.copy(snowyTaigaStablePath, structuresDir);
-		  }
-	  } catch (IOException e) {
-		  e.printStackTrace();
-	  }
-  }
-
 
 public void onDisable() {
     System.out.println("Disabling Fantasy Horses...");
