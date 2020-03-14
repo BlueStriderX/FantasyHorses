@@ -1,36 +1,14 @@
 main: net.thederpgamerx.fantasyhorses.main.Main
 name: FantasyHorses
 author: TheDerpGamerX
-version: 0.9
-api-version: 1.13
-depend: [Citizens]
+version: 0.10
+api-version: 1.15
 commands: 
  horse:
-  usage: /horse
+  usage: /fhorse
   description: Opens horse GUI
- debug_removehorse:
-  usage: /debug_removehorse <player> <slot>
-  description: Force removes a horse through command
- debug_savestructure:
-  usage: /debug_savestructure
-  description: Used to save stable structure, will be removed in later release
- debug_loadstructure:
-  usage: /debug_loadstructure
-  description: Used to load stable structure, will be removed in later release
 
 permissions:
- fantasyhorses.horse:
-  description: Access to horse GUI
-  default: true
  fantasyhorses.admin:
   description: Access to all admin commands
   default: false
- fantasyhorses.debug_removehorse:
-  default: false
-  description: Access to /debug_removehorse command
- fantasyhorses.debug_savestructure:
-  default: true
-  description: Access to /debug_savestructure command
- fantasyhorses.debug_loadstructure:
-  default: true
-  description: Access to /debug_loadstructure command
