@@ -7,25 +7,25 @@ import org.bukkit.entity.Player;
 
 public class FantasyHorse {
 	private UUID horseUUID;
+	private UUID playerUUID;
 	private Player horseOwner;
 	private String horseName;
 	private double horseMaxHealth;
 	private double horseHealth;
-	private String horseColor;
 	private String horseStyle;
-	private int horseSlot;
+	private String horseColor;
 	private Location horseLocation;
 	private int horseLevel;
 	private AttributeInstance horseSpeed;
 
-	public FantasyHorse(UUID horseUUID, Player horseOwner, double horseMaxHealth, double horseHealth, String horseColor, String horseStyle, int horseSlot, Location horseLocation, int horseLevel, AttributeInstance horseSpeed) {
+	public FantasyHorse(UUID horseUUID, UUID playerUUID, Player horseOwner, double horseMaxHealth, double horseHealth, String horseStyle, String horseColor, Location horseLocation, int horseLevel, AttributeInstance horseSpeed) {
 		this.horseUUID = horseUUID;
+		this.playerUUID = playerUUID;
 		this.horseOwner = horseOwner;
 		this.horseMaxHealth = horseMaxHealth;
 		this.horseHealth = horseHealth;
 		this.horseColor = horseColor;
 		this.horseStyle = horseStyle;
-		this.horseSlot = horseSlot;
 		this.horseLocation = horseLocation;
 		this.horseLevel = horseLevel;
 		this.horseSpeed = horseSpeed;
@@ -37,6 +37,14 @@ public class FantasyHorse {
 
 	public void setHorseUUID(UUID horseUUID) {
 		this.horseUUID = horseUUID;
+	}
+
+	public UUID getPlayerUUID() {
+		return playerUUID;
+	}
+
+	public void setPlayerUUID(UUID playerUUID) {
+		this.playerUUID = playerUUID;
 	}
 
 	public Player getHorseOwner() {
@@ -85,14 +93,6 @@ public class FantasyHorse {
 
 	public void setHorseStyle(String horseStyle) {
 		this.horseStyle = horseStyle;
-	}
-
-	public int getHorseSlot() {
-		return horseSlot;
-	}
-
-	public void setHorseSlot(int horseSlot) {
-		this.horseSlot = horseSlot;
 	}
 
 	public Location getHorseLocation() {
