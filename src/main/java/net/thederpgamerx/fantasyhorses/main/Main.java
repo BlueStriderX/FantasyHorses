@@ -18,7 +18,7 @@ public class Main extends org.bukkit.plugin.java.JavaPlugin implements CommandEx
 		System.out.println("[FantasyHorses]: Enabling...");
 
 		//Config Saving
-		FileHandler.saveConfigs();
+		FileHandler.createConfigs();
 		System.out.println("[FantasyHorses]: Configs have been successfully saved.");
 
 		//Events
