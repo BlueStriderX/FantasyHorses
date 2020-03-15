@@ -2,3 +2,5 @@
 /workspace.xml
 /.metadata
 /.settings
+# Project exclude paths
+/.
