@@ -2,7 +2,6 @@ package net.thederpgamerx.fantasyhorses.horses;
 
 import java.util.UUID;
 import org.bukkit.Location;
-import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.Player;
 
 public class FantasyHorse {
@@ -10,15 +9,16 @@ public class FantasyHorse {
 	private UUID playerUUID;
 	private Player horseOwner;
 	private String horseName;
-	private double horseMaxHealth;
-	private double horseHealth;
+	private float horseMaxHealth;
+	private float horseHealth;
 	private String horseStyle;
 	private String horseColor;
 	private Location horseLocation;
 	private int horseLevel;
-	private AttributeInstance horseSpeed;
+	private float horseSpeed;
+	private float horseJump;
 
-	public FantasyHorse(UUID horseUUID, UUID playerUUID, Player horseOwner, double horseMaxHealth, double horseHealth, String horseStyle, String horseColor, Location horseLocation, int horseLevel, AttributeInstance horseSpeed) {
+	public FantasyHorse(UUID horseUUID, UUID playerUUID, Player horseOwner, float horseMaxHealth, float horseHealth, String horseStyle, String horseColor, Location horseLocation, int horseLevel, float horseSpeed, float horseJump) {
 		this.horseUUID = horseUUID;
 		this.playerUUID = playerUUID;
 		this.horseOwner = horseOwner;
@@ -29,6 +29,7 @@ public class FantasyHorse {
 		this.horseLocation = horseLocation;
 		this.horseLevel = horseLevel;
 		this.horseSpeed = horseSpeed;
+		this.horseJump = horseJump;
 	}
 
 	public UUID getHorseUUID() {
@@ -63,22 +64,6 @@ public class FantasyHorse {
 		this.horseName = horseName;
 	}
 
-	public double getHorseMaxHealth() {
-		return horseMaxHealth;
-	}
-
-	public void setHorseMaxHealth(double horseMaxHealth) {
-		this.horseMaxHealth = horseMaxHealth;
-	}
-
-	public double getHorseHealth() {
-		return horseHealth;
-	}
-
-	public void setHorseHealth(double horseHealth) {
-		this.horseHealth = horseHealth;
-	}
-
 	public String getHorseColor() {
 		return horseColor;
 	}
@@ -111,11 +96,35 @@ public class FantasyHorse {
 		this.horseLevel = horseLevel;
 	}
 
-	public AttributeInstance getHorseSpeed() {
+	public float getHorseMaxHealth() {
+		return horseMaxHealth;
+	}
+
+	public void setHorseMaxHealth(float horseMaxHealth) {
+		this.horseMaxHealth = horseMaxHealth;
+	}
+
+	public float getHorseHealth() {
+		return horseHealth;
+	}
+
+	public void setHorseHealth(float horseHealth) {
+		this.horseHealth = horseHealth;
+	}
+
+	public float getHorseSpeed() {
 		return horseSpeed;
 	}
 
-	public void setHorseSpeed(AttributeInstance horseSpeed) {
+	public void setHorseSpeed(float horseSpeed) {
 		this.horseSpeed = horseSpeed;
+	}
+
+	public float getHorseJump() {
+		return horseJump;
+	}
+
+	public void setHorseJump(float horseJump) {
+		this.horseJump = horseJump;
 	}
 }
