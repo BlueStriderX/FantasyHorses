@@ -15,10 +15,10 @@ public class Main extends org.bukkit.plugin.java.JavaPlugin implements CommandEx
 	@Override
 	public void onEnable() {
 		plugin = this;
-		System.out.println("[FantasyHorses]: Enabling...");
+		System.out.println("[FantasyHorses]: Loading...");
 
 		//Config Saving
-		FileHandler.createConfigs();
+		Utilities.createConfigs();
 		System.out.println("[FantasyHorses]: Configs have been successfully saved.");
 
 		//Events
@@ -29,43 +29,14 @@ public class Main extends org.bukkit.plugin.java.JavaPlugin implements CommandEx
 		//Commands
 		getCommand("fhorse").setExecutor(new HorseGUI());
 		System.out.println("[FantasyHorses]: Commands have registered successfully.");
-  	}
+
+		System.out.println("");
+		System.out.println("[FantasyHorses]: Loading complete!");
+	}
 
   	public void onDisable() {
     	System.out.println("[FantasyHorses]: Disabling...");
   	}
-
-  	/*
-  	private void saveHorseConfig() {
-	  horsesFile = new File(getDataFolder(), "horses.yml");
-      if(!(horsesFile.exists())) {
-          horsesFile.getParentFile().mkdirs();
-          saveResource("horses.yml", false);
-       }
-
-      horsesConfig = new YamlConfiguration();
-
-      try {
-          horsesConfig.load(horsesFile);
-
-      } catch (IOException | InvalidConfigurationException e) {
-          e.printStackTrace();
-      }
-  }
-
-  	 */
-
-  	/*
-  	private FileConfiguration getHorsesConfig() {
-		return horsesConfig;
-  }
-  
-  	private File getHorsesFile() {
-		return horsesFile;
-	}
-
-
-  	 */
   
   	public static Main getPlugin() {
 	  	return plugin;
