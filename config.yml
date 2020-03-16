@@ -1,3 +1,19 @@
-summon-costs-epearls: true # If enabled, it costs ender pearls to summon a horse
-invulnerable-horses: false # If enabled, player horses are invulnerable
-horse-upgrade-max-health-multiplier: 1.05 # The modifier used for upgrading horse health
+# FantasyHorses configuration file
+#
+# Features:
+summon-costs-epearls: true # If enabled, it costs ender pearls to summon a horse.
+invulnerable-horses: false # If enabled, player horses are invulnerable.
+gui-only: false # If enabled, only admins can use commands and players will only be able to use the GUI menu.
+#
+# WIP / Unfinished Features:
+donator-features-enabled: false # WIP feature, ignore for now. Will eventually be used to configure if server donators should get stuff like extra horse slots.
+#
+# Upgrade Modifiers (Don't touch these unless you know what you're doing!):
+max-health-multiplier: 1.05 # The modifier used for upgrading horse health.
+max-health-cap: 50.0 # The maximum HP a horse can have.
+armor-multiplier: 1.25 # The modifier used for upgrade horse armor.
+armor-cap: 3.0 # The maximum armor modifier a horse can have.
+speed-multiplier: 1.025 # The modifier used for upgrading horse speed.
+speed-cap: 1.7 # The maximum speed modifier a horse can have.
+jump-multiplier: 1.0025 # The modifier used for upgrading horse jump.
+jump-cap: 1.05 # The maximum jump modifier a horse can have.
