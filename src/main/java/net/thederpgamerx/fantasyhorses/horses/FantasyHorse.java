@@ -2,6 +2,7 @@ package net.thederpgamerx.fantasyhorses.horses;
 
 import java.util.UUID;
 import org.bukkit.Location;
+import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
 
 public class FantasyHorse {
@@ -9,27 +10,44 @@ public class FantasyHorse {
 	private UUID playerUUID;
 	private Player horseOwner;
 	private String horseName;
+	private int horseLevel;
 	private float horseMaxHealth;
 	private float horseHealth;
-	private String horseStyle;
-	private String horseColor;
-	private Location horseLocation;
-	private int horseLevel;
 	private float horseSpeed;
 	private float horseJump;
+	private Horse.Style horseStyle;
+	private Horse.Color horseColor;
+	private Location horseLocation;
+	private Horse horseEntity;
 
-	public FantasyHorse(UUID horseUUID, UUID playerUUID, Player horseOwner, float horseMaxHealth, float horseHealth, String horseStyle, String horseColor, Location horseLocation, int horseLevel, float horseSpeed, float horseJump) {
-		this.horseUUID = horseUUID;
-		this.playerUUID = playerUUID;
+	public FantasyHorse(Player horseOwner, Horse horseEntity, String horseName) {
 		this.horseOwner = horseOwner;
-		this.horseMaxHealth = horseMaxHealth;
-		this.horseHealth = horseHealth;
-		this.horseColor = horseColor;
-		this.horseStyle = horseStyle;
-		this.horseLocation = horseLocation;
-		this.horseLevel = horseLevel;
-		this.horseSpeed = horseSpeed;
-		this.horseJump = horseJump;
+		this.horseEntity = horseEntity;
+		this.horseName = horseName;
+	}
+
+	public String getStyleString(Horse.Style style) {
+		switch(style) {
+			case NONE: return "NONE";
+			case WHITE: return "WHITE";
+			case WHITE_DOTS: return "WHITE_DOTS";
+			case WHITEFIELD: return "WHITEFIELD";
+			case BLACK_DOTS: return "BLACK_DOTS";
+		}
+		return null;
+	}
+
+	public String getColorString(Horse.Color color) {
+		switch(color) {
+			case WHITE: return "WHITE";
+			case GRAY: return "GRAY";
+			case BLACK: return "BLACK";
+			case CREAMY: return "CREAMY";
+			case CHESTNUT: return "CHESTNUT";
+			case BROWN: return "BROWN";
+			case DARK_BROWN: return "DARK_BROWN";
+		}
+		return null;
 	}
 
 	public UUID getHorseUUID() {
@@ -62,30 +80,6 @@ public class FantasyHorse {
 
 	public void setHorseName(String horseName) {
 		this.horseName = horseName;
-	}
-
-	public String getHorseColor() {
-		return horseColor;
-	}
-
-	public void setHorseColor(String horseColor) {
-		this.horseColor = horseColor;
-	}
-
-	public String getHorseStyle() {
-		return horseStyle;
-	}
-
-	public void setHorseStyle(String horseStyle) {
-		this.horseStyle = horseStyle;
-	}
-
-	public Location getHorseLocation() {
-		return horseLocation;
-	}
-
-	public void setHorseLocation(Location horseLocation) {
-		this.horseLocation = horseLocation;
 	}
 
 	public int getHorseLevel() {
@@ -126,5 +120,37 @@ public class FantasyHorse {
 
 	public void setHorseJump(float horseJump) {
 		this.horseJump = horseJump;
+	}
+
+	public Horse.Style getHorseStyle() {
+		return horseStyle;
+	}
+
+	public void setHorseStyle(Horse.Style horseStyle) {
+		this.horseStyle = horseStyle;
+	}
+
+	public Horse.Color getHorseColor() {
+		return horseColor;
+	}
+
+	public void setHorseColor(Horse.Color horseColor) {
+		this.horseColor = horseColor;
+	}
+
+	public Location getHorseLocation() {
+		return horseLocation;
+	}
+
+	public void setHorseLocation(Location horseLocation) {
+		this.horseLocation = horseLocation;
+	}
+
+	public Horse getHorseEntity() {
+		return horseEntity;
+	}
+
+	public void setHorseEntity(Horse horseEntity) {
+		this.horseEntity = horseEntity;
 	}
 }
