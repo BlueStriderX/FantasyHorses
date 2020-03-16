@@ -18,12 +18,11 @@ public class PlayerData {
 				level: <horseLevel>
 				health: <horseHealth>
 				maxHealth: <horseMaxHealth>
+				armor: <horseArmor>
 				speed: <horseSpeed>
 				jump: <horseJump>
 				style: <horseStyle>
 				color: <horseColor>
-				world: <horseWorld>
-				location: <horseLocation>
 			<horse2>:
 				name: <horseName>
 				...
