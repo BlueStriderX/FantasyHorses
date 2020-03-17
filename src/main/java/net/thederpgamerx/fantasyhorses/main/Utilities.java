@@ -2,7 +2,6 @@ package net.thederpgamerx.fantasyhorses.main;
 
 import net.thederpgamerx.fantasyhorses.horses.FantasyHorse;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -13,7 +12,6 @@ import org.yaml.snakeyaml.constructor.Constructor;
 import java.io.File;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Scanner;
 import java.util.UUID;
 
 public class Utilities {
@@ -81,6 +79,7 @@ public class Utilities {
 				Main.getPlugin().saveResource(playerDataPath, false);
 			}
 
+			//Todo:Save the specified horse
 
 		} catch (Exception e) {
 			e.printStackTrace();
