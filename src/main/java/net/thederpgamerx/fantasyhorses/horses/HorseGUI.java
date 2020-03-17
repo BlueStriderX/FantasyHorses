@@ -1,6 +1,5 @@
 package net.thederpgamerx.fantasyhorses.horses;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.bukkit.Bukkit;
@@ -17,26 +16,46 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import net.citizensnpcs.api.npc.NPC;
 import net.thederpgamerx.fantasyhorses.main.Main;
 
-public class HorseGUI implements org.bukkit.event.Listener, CommandExecutor {	
-  public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
-  {
-    Player player = (Player)sender;
-    if (sender instanceof Player) {
-      createHorseSelection(player);
-    }
-    return true;
-  }
-  
-  static FileConfiguration horsesConfig = Main.getHorsesConfig();
-  static File horsesFile = Main.getHorsesFile();
-  
-  @EventHandler
-  public static void onInventoryClick(InventoryClickEvent e) {
-	  if(e.getWhoClicked() instanceof Player) {
+public class HorseGUI implements org.bukkit.event.Listener, CommandExecutor {
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		Player player = (Player)sender;
+		if (sender instanceof Player) {
+			createHorseSelection(player);
+		}
+		return true;
+	}
+
+	@EventHandler
+	public static void onInventoryClick(InventoryClickEvent e) {
+		if(e.getWhoClicked() instanceof Player) {
+			Player player = (Player) e.getWhoClicked();
+			String invName = e.getInventory().getType().name();
+			if(invName == ChatColor.AQUA + "Horse Selection") {
+				e.setCancelled(true);
+				if(e.getCurrentItem().getType().equals(Material.SADDLE)) {
+					FantasyHorse fantasyHorse = fetchHorse(player, e.getSlot());
+					horseInfoGUI(fantasyHorse);
+				}
+			}
+		}
+	}
+
+	private static FantasyHorse fetchHorse(Player player, int slot) {
+		//ToDo:Fetch horse from data files
+	}
+
+	private static void horseInfoGUI(FantasyHorse fantasyHorse) {
+		Player player = fantasyHorse.getHorseOwner();
+		Inventory horseInfo = Bukkit.createInventory(player, 9, ChatColor.AQUA + "Horse Info");
+
+	}
+
+
+	/*
+  	public static void onInventoryClick(InventoryClickEvent e) {
+	  	if(e.getWhoClicked() instanceof Player) {
       	Player player = (Player)e.getWhoClicked();
       	@SuppressWarnings("deprecation")
 		String invName = e.getInventory().getName().toString(); 
@@ -318,7 +337,10 @@ public class HorseGUI implements org.bukkit.event.Listener, CommandExecutor {
       	}
     }
   }
-      	
+
+
+	 */
+	/*
   @SuppressWarnings("unchecked")
   public static void createHorseSelection(Player player) {
 	  
@@ -425,6 +447,8 @@ public class HorseGUI implements org.bukkit.event.Listener, CommandExecutor {
 	  player.closeInventory();
 	  player.openInventory(horseSelection);
   }
+
+	 */
   
   @SuppressWarnings({ "unchecked", "rawtypes" })
   public static void createHorseMenu(Player player, FantasyHorse fhorse) {
