@@ -1,0 +1,6 @@
+name: FantasyHorses
+version: @version@
+main: net.thederpgamerx.fantasyhorses.FantasyHorses
+api-version: 1.16.4
+prefix: FantasyHorses
+authors: [TheDerpGamerX]
